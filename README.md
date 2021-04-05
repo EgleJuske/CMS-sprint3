@@ -10,8 +10,9 @@ This application is for educational purposes. This CMS app was built with php an
 2. Move folder to this directory C:\Program Files\Ampps\www
 3. Start Apache and MySQL using Ampps
 4. Import 'pagedata.sql' script to your local SQL Server
-5. Follow this link to open the project in your internet browser http://localhost/cms-sprint3-master/
-6. If your downloaded folder name is different, then your address in browser will be "localhost/your-folder-name"
+5. Go to project folder and run this command in terminal `php ../composer.phar install`
+6. Follow this link to open the project in your internet browser http://localhost/cms-sprint3-master/
+7. If your downloaded folder name is different, then your address in browser will be "localhost/your-folder-name"
 
 ## Launch procedure:
 
