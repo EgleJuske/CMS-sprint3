@@ -14,9 +14,9 @@ if (isset($_POST['cancel'])) {
 }
 
 // Add page
-if (isset($_POST['add'])) {
+if (isset($_POST['add_page'])) {
   if (empty($_POST['page_name'])) {
-    $errorMsg = '<div style="color: red">Page name can not be empty!</div>';
+    $errorMsg = '<div style="color: red; margin-top: 20px;">Page name can not be empty!</div>';
   } else {
     $page = new Page();
     $page->setPageName($_POST['page_name']);

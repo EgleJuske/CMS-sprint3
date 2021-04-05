@@ -2,34 +2,42 @@
 require_once "./bootstrap.php";
 
 $request = $_SERVER['REQUEST_URI'];
-$prefix = '/cms-sprint3';
+
+$appPathArray = explode('\\', getcwd());
+$appName = strtolower(end($appPathArray));
 
 switch ($request) {
-  case $prefix . '/':
+  case '/' . $appName . '/':
     require __DIR__ . '/src/views/home.php';
     break;
-  case $prefix . '':
+  case '/' . $appName . '':
     require __DIR__ . '/src/views/home.php';
     break;
-  case $prefix . '/home':
+  case '/' . $appName . '/home':
     require __DIR__ . '/src/views/home.php';
     break;
-  case $prefix . '/home?pageId=' . $_GET['pageId']:
+  case '/' . $appName . '/home?id=' . $_GET['id']:
     require __DIR__ . '/src/views/home.php';
     break;
-  case $prefix . '/admin?action=logout':
+  case '/' . $appName . '/?id=' . $_GET['id']:
+    require __DIR__ . '/src/views/home.php';
+    break;
+  case '/' . $appName . '/home?id=1':
+    require __DIR__ . '/src/views/home.php';
+    break;
+  case '/' . $appName . '/admin?action=logout':
     require __DIR__ . '/src/views/admin.php';
     break;
-  case $prefix . '/admin':
+  case '/' . $appName . '/admin':
     require __DIR__ . '/src/views/admin.php';
     break;
-  case $prefix . '/admin?edit=' . $_GET['edit']:
+  case '/' . $appName . '/admin?edit=' . $_GET['edit']:
     require __DIR__ . '/src/views/edit-page.php';
     break;
-  case $prefix . '/admin?add':
+  case '/' . $appName . '/admin?add':
     require __DIR__ . '/src/views/add-page.php';
     break;
-  case $prefix . '/admin?delete=' . $_GET['delete']:
+  case '/' . $appName . '/admin?delete=' . $_GET['delete']:
     require __DIR__ . '/src/views/admin.php';
     break;
   default:

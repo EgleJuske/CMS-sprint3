@@ -17,7 +17,7 @@ if (isset($_POST['cancel'])) {
 // Edit page
 if (isset($_POST['edit_page'])) {
   if (empty($_POST['edit_name'])) {
-    $errorMsg = '<div style="color: red">Page name can not be empty!</div>';
+    $errorMsg = '<div style="color: red; margin-top: 20px;">Page name can not be empty!</div>';
   } else {
     $user = $entityManager->find('Model\Page', $_POST['edit_page']);
     $user->setPageName($_POST['edit_name']);

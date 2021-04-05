@@ -17,12 +17,12 @@ use Model\Page;
 
 <body>
   <header>
-    <h1>This is a simple CMS page</h1>
+    <h2>This is a simple CMS page</h2>
     <div class="top-nav-placeholder">
       <?php
       $pages = $entityManager->getRepository('Model\Page')->findAll();
       foreach ($pages as $page) {
-        echo '<a href="?pageId=' . $page->getId() . '">' . $page->getPageName() . '</a>';
+        echo '<a href="?id=' . $page->getId() . '">' . $page->getPageName() . '</a>';
       }
       ?>
     </div>
@@ -30,13 +30,13 @@ use Model\Page;
 
   <main>
     <?php
-    if (!$_GET['pageId']) {
+    if (!$_GET['id']) {
       $page = $entityManager->find('Model\Page',  1);
-      echo '<h2>' . $page->getPageName() . '</h2>';
+      echo '<h3>' . $page->getPageName() . '</h3>';
       echo '<div>' . $page->getPageContent() . '</div>';
     } else {
-      $page = $entityManager->find('Model\Page',  $_GET['pageId']);
-      echo '<h2>' . $page->getPageName() . '</h2>';
+      $page = $entityManager->find('Model\Page',  $_GET['id']);
+      echo '<h3>' . $page->getPageName() . '</h3>';
       echo '<div>' . $page->getPageContent() . '</div>';
     }
     ?>

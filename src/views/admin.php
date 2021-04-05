@@ -3,11 +3,13 @@ include_once "bootstrap.php";
 
 use Model\Page;
 
+// Getting app name
 $appPathArray = explode('\\', getcwd());
 $appName = strtolower(end($appPathArray));
+
 $errorMsg = '';
 
-// Logout logic
+// Logout
 session_start();
 if (isset($_GET['action']) and $_GET['action'] == 'logout') {
   session_start();
@@ -18,7 +20,7 @@ if (isset($_GET['action']) and $_GET['action'] == 'logout') {
   exit;
 }
 
-// Login logic
+// Login
 if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password'])) {
   if ($_POST['username'] == 'Gurgutis' && $_POST['password'] == '1234') {
     $_SESSION['logged_in'] = true;
@@ -57,7 +59,7 @@ if (isset($_GET['delete'])) {
           <form action="" method="post">
               <input type="text" name="username" placeholder="username = Gurgutis" required autofocus></br>
               <input type="password" name="password" placeholder="password = 1234" required><br>
-              <button class="btn" type="submit" name="login">Login</button>
+              <button class="btn login-btn" type="submit" name="login">Login</button>
           </form>
         </div>';
   } else {
@@ -74,11 +76,17 @@ if (isset($_GET['delete'])) {
         </thead>
         <tbody>';
       foreach ($pages as $page) {
+        $buttons = '';
+        if ($page->getId() === 1) {
+          $buttons = '<a class="btn edit-btn" href="?edit=' . $page->getId() . '">Edit</a>';
+        } else {
+          $buttons = '<a class="btn edit-btn" href="?edit=' . $page->getId() . '">Edit</a>
+          <a class="btn delete-btn" href="?delete=' . $page->getId() . '">Delete</a>';
+        }
         echo '<tr>
           <td>' . $page->getPageName() . '</td>
           <td>
-              <a href="?edit=' . $page->getId() . '">Edit</a>
-              <a href="?delete=' . $page->getId() . '">Delete</a>
+              ' . $buttons . '
           </td>
         </tr>';
       }
@@ -86,7 +94,7 @@ if (isset($_GET['delete'])) {
       ?>
     </div>
 
-    <a href="?add">Add Page</a>
+    <a class="btn add-btn" href="?add">Add Page</a>
     </main>
 
     <footer>
@@ -96,3 +104,5 @@ if (isset($_GET['delete'])) {
 </body>
 
 </html>
+
+<img src="https://lh3.googleusercontent.com/proxy/NGUBI3yF5RsG92bue0RyPtcqERa9HRShINrv0erUpuixnck6MRpiMU2E8auFsv21ppfl9ywfyWJXtdutdVYOmaz10CI-seuz" alt="pinecone">
