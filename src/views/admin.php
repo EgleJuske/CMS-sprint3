@@ -104,5 +104,3 @@ if (isset($_GET['delete'])) {
 </body>
 
 </html>
-
-<img src="https://lh3.googleusercontent.com/proxy/NGUBI3yF5RsG92bue0RyPtcqERa9HRShINrv0erUpuixnck6MRpiMU2E8auFsv21ppfl9ywfyWJXtdutdVYOmaz10CI-seuz" alt="pinecone">
