@@ -1,0 +1,12 @@
+main form {
+	width: 100%;
+}
+
+form input,
+form textarea {
+	line-height: 24px;
+	padding: 2px;
+	padding-left: 10px;
+	margin-bottom: 20px;
+	margin-top: 5px;
+}

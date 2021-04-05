@@ -1,6 +1,6 @@
 <?php
 
-namespace Root;
+namespace Model;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -23,10 +23,6 @@ class Page
     /** 
      * @ORM\Column(type="string")
      */
-    protected $pageHeader;
-    /** 
-     * @ORM\Column(type="string")
-     */
     protected $pageContent;
 
     public function getId()
@@ -42,16 +38,6 @@ class Page
     public function setPageName($pageName)
     {
         $this->pageName = $pageName;
-    }
-
-    public function getPageHeader()
-    {
-        return $this->pageHeader;
-    }
-
-    public function setPageHeader($pageHeader)
-    {
-        $this->pageHeader = $pageHeader;
     }
 
     public function getPageContent()

@@ -1,47 +1,39 @@
 <?php
-include_once "bootstrap.php";
+require_once "./bootstrap.php";
 
-use Root\Page;
-?>
+$request = $_SERVER['REQUEST_URI'];
+$prefix = '/cms-sprint3';
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/main.css">
-  <title>Happy to see you here</title>
-</head>
-
-<body>
-  <header>
-    <h1>This is a simple CMS page</h1>
-    <div class="top-nav-placeholder">
-      <?php
-      $pages = $entityManager->getRepository('Root\Page')->findAll();
-      foreach ($pages as $page) {
-        echo '<a href="?pageId=' . $page->getId() . '">' . $page->getPageName() . '</a>';
-      }
-      ?>
-    </div>
-  </header>
-
-  <main>
-    <?php
-    $page = $entityManager->find('Root\Page',  $_GET['pageId']);
-    if ($page !== NULL) {
-      echo '<h2>' . $page->getPageName() . '</h2>';
-      echo '<h3>' . $page->getPageHeader() . '</h3>';
-      echo '<div>' . $page->getPageContent() . '</div>';
-    }
-    ?>
-  </main>
-
-  <footer>
-    <div>Footer for my page</div>
-  </footer>
-</body>
-
-</html>
+switch ($request) {
+  case $prefix . '/':
+    require __DIR__ . '/src/views/home.php';
+    break;
+  case $prefix . '':
+    require __DIR__ . '/src/views/home.php';
+    break;
+  case $prefix . '/home':
+    require __DIR__ . '/src/views/home.php';
+    break;
+  case $prefix . '/home?pageId=' . $_GET['pageId']:
+    require __DIR__ . '/src/views/home.php';
+    break;
+  case $prefix . '/admin?action=logout':
+    require __DIR__ . '/src/views/admin.php';
+    break;
+  case $prefix . '/admin':
+    require __DIR__ . '/src/views/admin.php';
+    break;
+  case $prefix . '/admin?edit=' . $_GET['edit']:
+    require __DIR__ . '/src/views/edit-page.php';
+    break;
+  case $prefix . '/admin?add':
+    require __DIR__ . '/src/views/add-page.php';
+    break;
+  case $prefix . '/admin?delete=' . $_GET['delete']:
+    require __DIR__ . '/src/views/admin.php';
+    break;
+  default:
+    http_response_code(404);
+    require __DIR__ . '/src/views/404.php';
+    break;
+}

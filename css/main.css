@@ -1,5 +1,6 @@
 @import "button.css";
 @import "table.css";
+@import "form.css";
 
 body,
 body * {
@@ -14,17 +15,39 @@ body * {
 body {
 	width: 800px;
 	margin-left: calc(50% - 400px);
-	background-color: rgb(231, 231, 231);
 }
 
-h1,
+h2 {
+	color: rgb(157, 189, 192);
+}
+
 h2,
 h3 {
 	margin: 10px 0;
 }
 
+.login-form-placeholder {
+	margin-top: 100px;
+	width: 100%;
+}
+
+.login-form-placeholder form {
+	text-align: center;
+}
+
+.login-form-placeholder input {
+	margin-bottom: 20px;
+	width: 300px;
+	line-height: 24px;
+	padding: 10px;
+}
+
+.login-form-placeholder button {
+	width: 300px;
+}
+
 .top-nav-placeholder {
-	background-color: rgb(51, 49, 49);
+	background-color: rgb(47, 63, 65);
 	padding: 10px 0;
 }
 
@@ -35,8 +58,8 @@ h3 {
 }
 
 .top-nav-placeholder a:hover {
-	background-color: white;
-	color: rgb(51, 49, 49);
+	background-color: rgb(157, 189, 192);
+	color: rgb(47, 63, 65);
 }
 
 main {
@@ -45,11 +68,30 @@ main {
 
 footer {
 	margin-top: 20px;
-	background-color: rgb(51, 49, 49);
+	background-color: rgb(47, 63, 65);
 	padding: 10px 0;
-	color: white;
+	color: rgb(220, 236, 238);
 }
 
 footer div {
 	margin-left: 20px;
+}
+
+footer a {
+	text-decoration: none;
+	color: rgb(224, 152, 120);
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+.edit-page-form-placeholder {
+	width: 800px;
+}
+
+textarea {
+	width: 100%;
+	max-width: 100%;
+	max-height: 600px;
 }
