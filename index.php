@@ -1,5 +1,7 @@
 <?php
 include_once "bootstrap.php";
+
+use Root\Page;
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +22,7 @@ include_once "bootstrap.php";
       <?php
       $pages = $entityManager->getRepository('Root\Page')->findAll();
       foreach ($pages as $page) {
-        echo '<a href="#">' . $page->getPageName() . '</a>';
+        echo '<a href="?pageId=' . $page->getId() . '">' . $page->getPageName() . '</a>';
       }
       ?>
     </div>
@@ -28,9 +30,12 @@ include_once "bootstrap.php";
 
   <main>
     <?php
-    echo '<h2>' . $page->getPageName() . 'Page name</h2>';
-    echo '<h3>' . $page->getPageHeader() . '</h3>';
-    echo '<div>' . $page->getPageContent() . '</div>';
+    $page = $entityManager->find('Root\Page',  $_GET['pageId']);
+    if ($page !== NULL) {
+      echo '<h2>' . $page->getPageName() . '</h2>';
+      echo '<h3>' . $page->getPageHeader() . '</h3>';
+      echo '<div>' . $page->getPageContent() . '</div>';
+    }
     ?>
   </main>
 

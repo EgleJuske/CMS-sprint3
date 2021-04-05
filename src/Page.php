@@ -15,7 +15,7 @@ class Page
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    protected $id;
+    protected $Id;
     /** 
      * @ORM\Column(type="string")
      */
@@ -31,7 +31,7 @@ class Page
 
     public function getId()
     {
-        return $this->id;
+        return $this->Id;
     }
 
     public function getPageName()
